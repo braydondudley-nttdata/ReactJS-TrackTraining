@@ -1,8 +1,21 @@
+import { Route, Switch, Redirect } from 'react-router-dom';
+
+import NotFound from './pages/NotFound';
+import Meals from './components/meals/Meals';
+
 function App() {
   return (
-    <div>
-      <h2>Let's get started!</h2>
-    </div>
+    <Switch>
+      <Route path='/' exact>
+        <Redirect to='/meals' />
+      </Route>
+      <Route path='/meals' exact>
+        <Meals />
+      </Route>
+      <Route path='*'>
+        <NotFound/>
+      </Route>
+    </Switch>
   );
 }
 
