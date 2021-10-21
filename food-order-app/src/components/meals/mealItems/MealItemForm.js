@@ -11,9 +11,9 @@ function MealItemForm(props) {
     event.preventDefault();
 
     const enteredAmount = amountInputRef.current.value;
-    const enteredAmountNumber = +enteredAmount; // used to test validity AND updates total count in reducer
+    const enteredAmountNumber = +enteredAmount; // used to test validity AND updates total amount in reducer
 
-    console.log('entered: ' + enteredAmount) // --debug
+    console.log('entered: ' + enteredAmount) // --debugging
 
     if (enteredAmount.trim().length === 0 || enteredAmountNumber < 1 || enteredAmountNumber > 5) {
       setAmountIsValid(false);

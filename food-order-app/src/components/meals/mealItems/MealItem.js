@@ -9,12 +9,12 @@ function MealItem(props) {
 
   const price = `$${props.price.toFixed(2)}`; //concats '$' with price string AND rounds price to 2 decimals
 
-  const addToCartHandler = count => {
+  const addToCartHandler = amount => {
     cartCtx.AddItem({
       id: props.id,
       name: props.name,
-      count: count,
-      price: props.price //should be original price, not rounded value
+      amount: amount,
+      price: props.price //use original price (not rounded value)
     })
   }
 

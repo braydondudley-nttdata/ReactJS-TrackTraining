@@ -12,7 +12,6 @@ const cartReducer = (state, action) => {
   // ---- ADD action ----
   if (action.type === 'ADD') {
     // update total amount with curr + (new price * new amount)
-    console.log('object: ' + JSON.stringify(action.item))
     const updatedTotalAmount = state.totalAmount + action.item.price * action.item.amount;
 
     const existingCartItemIndex = state.items.findIndex(
@@ -87,13 +86,13 @@ const CartProvider = (props) => {
   // });
 
   const openCartHandler = () => {
-    setCartIsOpen(true);
     console.log("openCart hit")
+    setCartIsOpen(true);
   }
 
   const closeCartHandler = () => {
-    setCartIsOpen(false);
     console.log("closeCart hit")
+    setCartIsOpen(false);
   }
 
   const cartBtnCtx = {
@@ -118,7 +117,7 @@ const CartProvider = (props) => {
 
   const cartCtx = {
     items: cartState.items,
-    count: cartState.amount,
+    amount: cartState.amount,
     AddItem: AddItemToCartHandler,
     RemoveItem: RemoveItemFromCartHandler,
     ClearCart: clearCartHandler, 
