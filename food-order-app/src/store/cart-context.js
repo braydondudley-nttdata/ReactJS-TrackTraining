@@ -1,11 +1,11 @@
-// import { useContext } from 'react'
+import { createContext } from 'react'
 
-// const CartContext() {
-//   return (
-//     <div>
-      
-//     </div>
-//   )
-// }
+const CartContext = createContext({
+  items: [],
+  amount: 0,
+  AddItem: (item) => {},
+  RemoveItem: (item) => {},
+  ClearCart: () => {}
+})
 
-// export default cart-context
+export default CartContext
