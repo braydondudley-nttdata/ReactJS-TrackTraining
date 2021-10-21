@@ -72,6 +72,15 @@ const cartReducer = (state, action) => {
   return defaultCartState;
 }
 
+const animationReducer = (state, action) => {
+
+  // ---- ADD action ----
+  if (action.type === 'ADD') {
+
+  }
+  return defaultCartState;
+}
+
 const CartProvider = (props) => {
   const [cartIsOpen, setCartIsOpen] = useState(false);
   const [cartState, dispatchCartAction] = useReducer(
