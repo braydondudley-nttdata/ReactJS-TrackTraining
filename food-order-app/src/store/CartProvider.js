@@ -1,4 +1,6 @@
 import { useState, useReducer } from 'react'
+import { useHistory } from 'react-router-dom';
+
 import CartButtonContext from './cart-button-context'
 import CartContext from './cart-context'
 
@@ -72,16 +74,17 @@ const cartReducer = (state, action) => {
   return defaultCartState;
 }
 
-const animationReducer = (state, action) => {
+// const animationReducer = (state, action) => {
 
-  // ---- ADD action ----
-  if (action.type === 'ADD') {
+//   // ---- ADD action ----
+//   if (action.type === 'ADD') {
 
-  }
-  return defaultCartState;
-}
+//   }
+//   return defaultCartState;
+// }
 
 const CartProvider = (props) => {
+  const history = useHistory();
   const [cartIsOpen, setCartIsOpen] = useState(false);
   const [cartState, dispatchCartAction] = useReducer(
     cartReducer,
@@ -97,16 +100,20 @@ const CartProvider = (props) => {
   const openCartHandler = () => {
     console.log("openCart hit")
     setCartIsOpen(true);
+    history.push('/cart');
   }
 
   const closeCartHandler = () => {
     console.log("closeCart hit")
     setCartIsOpen(false);
+    history.push('/meals');
   }
 
   const cartBtnCtx = {
     cartIsOpen: cartIsOpen,
-    setCartIsOpen: cartIsOpen ? closeCartHandler : openCartHandler
+    setCartIsOpen: cartIsOpen ? closeCartHandler : openCartHandler,
+    openCart: openCartHandler,
+    closeCart: closeCartHandler
   }
 
   const AddItemToCartHandler = (item) => {

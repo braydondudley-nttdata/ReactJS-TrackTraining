@@ -46,6 +46,14 @@ function Cart(props) {
   //   onAdd={cartItemAddHandler.bind(null, item)}
   // }].map(item => <li key={item.id}>{item.name}</li>)
 
+  const onOrderHandler = () => {
+    const isValid = true;
+    if (isValid) {
+      console.log("order submitted")
+      cartBtnCtx.setCartIsOpen()
+    }
+  }
+
   return (
     <Modal onClose={props.onClose}>
       {listItems}
@@ -55,7 +63,7 @@ function Cart(props) {
       </div>
       <div className={classes.actions}>
         <button className={classes['button--alt']} onClick={cartBtnCtx.setCartIsOpen}>Close</button>
-        {hasItems && <button className={classes.button}>Order</button>}
+        {hasItems && <button className={classes.button} onClick={onOrderHandler}>Order</button>}
       </div>
     </Modal>
   )

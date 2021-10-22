@@ -2,7 +2,9 @@ import { createContext } from 'react'
 
 const CartButtonContext = createContext({
   cartIsOpen: false,
-  setCartIsOpen: (isOpen) => {}
+  setCartIsOpen: (isOpen) => {},
+  openCart: () => {},
+  closeCart: () => {}
 })
 
 export default CartButtonContext

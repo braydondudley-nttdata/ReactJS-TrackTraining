@@ -21,6 +21,12 @@ function App() {
         <Header onOpenCart={cartBtnCtx.openCartHandler}/>
         <Meals />
       </Route>
+      <Route path='/cart' exact>
+        {cartBtnCtx.openCart}
+        <Cart/>
+        <Header />
+        <Meals />
+      </Route>
       <Route path='*'>
         <NotFound/>
       </Route>
