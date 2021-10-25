@@ -18,7 +18,7 @@ function App() {
       </Route>
       <Route path='/meals' exact>
         {cartBtnCtx.cartIsOpen && <Cart/>}
-        <Header onOpenCart={cartBtnCtx.openCartHandler}/>
+        <Header />
         <Meals />
       </Route>
       <Route path='/cart' exact>
