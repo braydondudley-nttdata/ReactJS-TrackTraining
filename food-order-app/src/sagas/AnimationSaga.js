@@ -1,9 +1,9 @@
-import { delay } from 'redux-saga/effects';
+import { delay, call, put } from 'redux-saga/effects';
 
 function* AnimationSaga() {
-  console.log('I have been called');
+  yield put({type: 'SET_BTN_TRUE'})
   yield delay(300);
-  console.log('I am doing noting');
+  yield put({type: 'SET_BTN_FALSE'})
 }
 
 export default AnimationSaga

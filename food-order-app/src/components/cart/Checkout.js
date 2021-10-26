@@ -1,11 +1,13 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useContext } from 'react';
 
 import classes from './Checkout.module.css';
+import CartButtonContext from '../../store/cart-button-context';
 
 const isEmpty = (val) => val.trim() === '';
 const isFiveChars = (val) => val.trim().length === 5;
 
 const Checkout = (props) => {
+  const btnCtx = useContext(CartButtonContext)
 
   const [formInputsValidity, setFormInputsValidity] = useState({
     name: true,
@@ -88,7 +90,7 @@ const Checkout = (props) => {
         {!formInputsValidity.city && <p>Please enter a valid city!</p>}
       </div>
       <div className={classes.actions}>
-        <button type='button'>Cancel</button>
+        <button type='button' onClick={btnCtx.closeCart}>Cancel</button>
         <button className={classes.submit}>Confirm</button>
       </div>
     </form>

@@ -5,7 +5,7 @@ import CartIcon from "../cart/CartIcon";
 import classes from "./HeaderCartButton.module.css";
 import CartButtonContext from '../../store/cart-button-context'
 import CartContext from '../../store/cart-context'
-import store from "../../store/index";
+
 
 function HeaderCartButton(props) {
   // const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
@@ -16,19 +16,19 @@ function HeaderCartButton(props) {
   const btnHighlighted = useSelector((state) => state.btnIsHighlighted);
   if (btnHighlighted === null) btnHighlighted = false;
 
-  const action = (type, payload) => {
-    if (payload !== null) {
-      dispatch({type, payload})
-    } else {
-      dispatch({type})
-    }
-  }
+  // const action = (type, payload) => {
+  //   if (payload !== null) {
+  //     dispatch({type, payload})
+  //   } else {
+  //     dispatch({type})
+  //   }
+  // }
 
   const { items } = cartCtx // abstracts ONLY the 'items' property inside the cartCtx object
 
 
   const highlightHandler = () => {
-    // dispatch({ type: 'ADD_ANIM' });
+    // dispatch({ type: 'OPEN_CART', payload: items });
     cartBtnCtx.setCartIsOpen()
   };
 
@@ -44,17 +44,7 @@ function HeaderCartButton(props) {
     if (items.length === 0) {
       return;
     }
-    // setBtnIsHighlighted(true);
-    action('SET_BTN_TRUE')
-
-    const timer = setTimeout(() => {
-      // setBtnIsHighlighted(false);
-      action('SET_BTN_FALSE')
-    }, 300);
-
-    return () => {
-      clearTimeout(timer);
-    };
+    dispatch({type: 'UPDATE_CART'})
   }, [items]);
 
   return (

@@ -1,8 +1,12 @@
 import { useContext } from 'react';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga'
+
 // import CartButtonContext from './cart-button-context'
 // const cartBtnCtx = useContext(CartButtonContext);
 // cartBtnCtx.setCartIsOpen()
+
+import rootSaga from '../sagas/root'
 
 const initialState = { btnIsHighlighted: false };
 
@@ -10,12 +14,14 @@ export const AnimationReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case 'SET_BTN_TRUE':
+      console.log("true")
       return { btnIsHighlighted: true }
     case 'SET_BTN_FALSE':
+      console.log("false")
       return { btnIsHighlighted: false }
-    // case 'OPEN_CART':
+    case 'UPDATE_CART':
     //   cartBtnCtx.setCartIsOpen()
-    //   return state
+      return state
     default:
       return state
   }
@@ -27,6 +33,8 @@ export const AnimationReducer = (state = initialState, action) => {
   // return state;
 };
 
-const store = createStore(AnimationReducer);
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(AnimationReducer, applyMiddleware(sagaMiddleware));
+sagaMiddleware.run(rootSaga)
 
 export default store;
