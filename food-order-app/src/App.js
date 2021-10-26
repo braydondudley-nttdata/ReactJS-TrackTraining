@@ -12,25 +12,25 @@ function App() {
   const cartBtnCtx = useContext(CartButtonContext);
 
   return (
-    <Switch>
-      <Route path='/' exact>
-        <Redirect to='/meals' />
-      </Route>
-      <Route path='/meals' exact>
-        {cartBtnCtx.cartIsOpen && <Cart/>}
-        <Header />
-        <Meals />
-      </Route>
-      <Route path='/cart' exact>
-        {cartBtnCtx.openCart}
-        <Cart/>
-        <Header />
-        <Meals />
-      </Route>
-      <Route path='*'>
-        <NotFound/>
-      </Route>
-    </Switch>
+    <div>
+      <Switch>
+        <Route path='/' exact>
+          <Redirect to='/meals' />
+        </Route>
+        <Route path='/meals' exact>
+          {cartBtnCtx.cartIsOpen && <Cart/>}
+        </Route>
+        <Route path='/cart' exact>
+          {cartBtnCtx.openCart}
+          <Cart/>
+        </Route>
+        <Route path='*'>
+          <NotFound/>
+        </Route>
+      </Switch>
+      <Header />
+      <Meals />
+    </div>
   );
 }
 
