@@ -45,6 +45,7 @@ function HeaderCartButton(props) {
       return;
     }
     dispatch({type: 'UPDATE_CART'})
+    // dispatch({type: 'GET_COUNT'})
   }, [items]);
 
   return (

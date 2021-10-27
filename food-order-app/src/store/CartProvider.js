@@ -33,6 +33,7 @@ const cartReducer = (state, action) => {
       updatedItems = state.items.concat(action.item);
     }
 
+    // Update api database
     return {
       items: updatedItems,
       totalAmount: updatedTotalAmount
@@ -60,6 +61,8 @@ const cartReducer = (state, action) => {
       updatedItems[existingCartItemIndex] = updatedItem;
     }
 
+    
+    // Update api database
     return {
       items: updatedItems,
       totalAmount: updatedTotalAmount
@@ -133,7 +136,7 @@ const CartProvider = (props) => {
 
   const cartCtx = {
     items: cartState.items,
-    amount: cartState.amount,
+    amount: cartState.totalAmount,
     AddItem: AddItemToCartHandler,
     RemoveItem: RemoveItemFromCartHandler,
     ClearCart: clearCartHandler, 

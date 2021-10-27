@@ -1,5 +1,5 @@
 import { Route, Switch, Redirect } from 'react-router-dom';
-import { useContext } from 'react'
+import { Fragment, useContext } from 'react'
 
 import NotFound from './pages/NotFound';
 import Header from "./components/layout/Header";
@@ -12,7 +12,7 @@ function App() {
   const cartBtnCtx = useContext(CartButtonContext);
 
   return (
-    <div>
+    <Fragment>
       <Switch>
         <Route path='/' exact>
           <Redirect to='/meals' />
@@ -30,7 +30,7 @@ function App() {
       </Switch>
       <Header />
       <Meals />
-    </div>
+    </Fragment>
   );
 }
 

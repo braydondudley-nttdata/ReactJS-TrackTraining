@@ -40,13 +40,14 @@ function Cart(props) {
 
   const submitOrderHandler = async (userData) => {
     setIsSubmitting(true)
-    await fetch('https://saga-quick-attempt-default-rtdb.firebaseio.com/', {
-      method: 'POST',
-      body: JSON.stringify({
-        user: userData,
-        orderedItems: cartCtx.items,
-      }),
-    })
+    
+    // await fetch('https://saga-quick-attempt-default-rtdb.firebaseio.com/meals.json', {
+    //   method: 'POST',
+    //   body: JSON.stringify({
+    //     user: userData,
+    //     orderedItems: cartCtx.items,
+    //   }),
+    // })
     setIsSubmitting(false);
     setDidSubmit(true);
     cartCtx.ClearCart();

@@ -20,7 +20,8 @@ export const AnimationReducer = (state = initialState, action) => {
       console.log("false")
       return { btnIsHighlighted: false }
     case 'UPDATE_CART':
-    //   cartBtnCtx.setCartIsOpen()
+      return state
+    case 'FETCH_CART':
       return state
     default:
       return state
