@@ -3,7 +3,7 @@ const postMeals = async (url, cartCtx) => {
   const response = await fetch('https://saga-quick-attempt-default-rtdb.firebaseio.com/cart.json', {
     method: 'POST',
     body: JSON.stringify({
-      cart: cartCtx,
+      item: cartCtx,
     }),
   })
 

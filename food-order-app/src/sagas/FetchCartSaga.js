@@ -1,7 +1,6 @@
 import { call, put, take } from 'redux-saga/effects';
 import fetchMeals from './fetchMeals';
 import postMeals from './postMeals';
-// import axios from 'axios'
 
 const mealUrl = 'https://saga-quick-attempt-default-rtdb.firebaseio.com/meals.json';
 const cartUrl = 'https://saga-quick-attempt-default-rtdb.firebaseio.com/cart.json';

@@ -10,7 +10,7 @@ function Meals() {
   const cartCtx = useContext(CartContext)
 
   useEffect(() => {
-    dispatch({type: 'POST_CART', payload: cartCtx})
+    dispatch({type: 'POST_CART', payload: cartCtx.items})
   }, [cartCtx])
 
   return (
