@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import axios from 'axios'
 import { useDispatch } from "react-redux";
 
@@ -6,6 +6,7 @@ import Card from '../ui/Card';
 import MealItem from './mealItems/MealItem';
 import classes from './AvailableMeals.module.css';
 import DUMMY_MEALS from '../../assets/dummy-meals'
+import CartContext from '../../store/cart-context';
 
 // const postHandler = () => {
 //   axios.get('https://saga-quick-attempt-default-rtdb.firebaseio.com/')

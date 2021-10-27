@@ -1,4 +1,5 @@
-import { Fragment, useContext, useState } from 'react'
+import { Fragment, useContext, useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 
 import Modal from '../ui/Modal';
 import CartItem from './CartItem';
@@ -14,6 +15,7 @@ function Cart(props) {
 
   const cartBtnCtx = useContext(CartButtonContext);
   const cartCtx = useContext(CartContext);
+  const dispatch = useDispatch();
 
   // console.log(JSON.stringify(cartCtx)) // --debugging to see contents of cart
 
@@ -52,6 +54,10 @@ function Cart(props) {
     setDidSubmit(true);
     cartCtx.ClearCart();
   }
+
+  // useEffect(() => {
+  //   dispatch({type: 'POST_CART', payload: cartCtx.items})
+  // }, [cartCtx])
 
   const listItems = <ul className={classes['cart-items']}>{
     cartCtx.items.map((item) => (

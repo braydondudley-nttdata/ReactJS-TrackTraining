@@ -1,12 +1,13 @@
 import { all, call, takeEvery } from 'redux-saga/effects'
 
 import animationSaga from './AnimationSaga'
-import { fetchCart } from './FetchCartSaga'
+import { fetchCart, postCart } from './FetchCartSaga'
 
 // notice how we now only export the rootSaga
 // single entry point to start all Sagas at once
 export default function* rootSaga() {
   yield takeEvery('UPDATE_CART', animationSaga)
+  yield takeEvery('POST_CART', postCart)
   yield takeEvery('FETCH_CART', fetchCart)
 }
 

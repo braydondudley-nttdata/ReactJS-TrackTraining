@@ -6,7 +6,7 @@ const fetchMeals = async (url) => {
   }
 
   const responseData = await response.json();
-  console.log(JSON.stringify(responseData))
+  // console.log(JSON.stringify(responseData))
   return responseData
 }
 
