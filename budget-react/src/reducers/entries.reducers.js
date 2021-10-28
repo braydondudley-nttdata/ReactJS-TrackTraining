@@ -4,10 +4,10 @@ export default (state = initialEntries, action) => {
   let newEntries;
   switch (action.type) {
     case 'ADD_ENTRY':
-      newEntries = entries.concat({ ...action.payload });
+      newEntries = state.concat({ ...action.payload });
       return newEntries;
     case 'REMOVE_ENTRY':
-      newEntries = entries.filter((entry) => entry.id !== action.payload.id);
+      newEntries = state.filter((entry) => entry.id !== action.payload.id);
       return newEntries;
     default:
       return state;
