@@ -1,4 +1,5 @@
 import { createStore, combineReducers } from 'redux'
+import { ModalActions } from 'semantic-ui-react';
 
 export default (state = initialEntries, action) => {
   let newEntries;
@@ -9,6 +10,11 @@ export default (state = initialEntries, action) => {
     case 'REMOVE_ENTRY':
       newEntries = state.filter((entry) => entry.id !== action.payload.id);
       return newEntries;
+    case 'UPDATE_ENTRY':
+      newEntries = [...state]
+      const index = newEntries.findIndex(entry => entry.id === action.payload.id)
+      newEntries[index] = {...action.payload.entry}
+      return newEntries
     default:
       return state;
   }
